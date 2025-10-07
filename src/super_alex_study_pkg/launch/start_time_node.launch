@@ -1,0 +1,3 @@
+<launch>
+    <node name="time_publisher" pkg="super_alex_study_pkg" type="time_node.py" output="screen"/>
+</launch>
