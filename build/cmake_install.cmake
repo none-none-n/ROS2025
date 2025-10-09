@@ -143,11 +143,24 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 file(INSTALL DESTINATION "/root/catkin_ws/install" TYPE FILE FILES "/root/catkin_ws/build/catkin_generated/installspace/.rosinstall")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/root/catkin_ws/build/catkin_generated/installspace/super_alex_study_pkg.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/super_alex_study_pkg/cmake" TYPE FILE FILES
+    "/root/catkin_ws/build/catkin_generated/installspace/super_alex_study_pkgConfig.cmake"
+    "/root/catkin_ws/build/catkin_generated/installspace/super_alex_study_pkgConfig-version.cmake"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/super_alex_study_pkg" TYPE FILE FILES "/root/catkin_ws/src/package.xml")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/root/catkin_ws/build/gtest/cmake_install.cmake")
-  include("/root/catkin_ws/build/study_pkg/cmake_install.cmake")
-  include("/root/catkin_ws/build/super_alex_study_pkg/cmake_install.cmake")
 
 endif()
 
